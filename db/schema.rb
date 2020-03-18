@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 2020_03_18_154428) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.text "username"
-    t.text "email"
+    t.string "username"
+    t.string "email"
     t.boolean "private"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

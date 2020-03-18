@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  get '/', to: 'page#index'
-  get '/login', to: 'page#login'
-  get '/signup', to: 'page#signup'
+  get '/', to: 'pages#index'
+  get '/login', to: 'pages#login'
+  get '/signup', to: 'pages#signup'
+
+  resources :users
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
