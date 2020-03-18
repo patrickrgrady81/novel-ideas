@@ -29,8 +29,9 @@ end
 #### Faker Users
 10.times do
   username = Faker::GreekPhilosophers.unique.name.downcase.gsub(' ', '_')
-  email = Faker::Internet.email #=> "kirsten.greenholt@corkeryfisher.info"
-  User.create(username: username, email: email)
+  email = Faker::Internet.unique.email #=> "kirsten.greenholt@corkeryfisher.info"
+  password = Faker::Internet.unique.password(min_length: 8)
+  User.create(username: username, email: email, password: password)
 end
 
 puts "Created #{Book.count} Books"

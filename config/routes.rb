@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get '/', to: 'pages#index'
   get '/login', to: 'pages#login'
   get '/signup', to: 'pages#signup'
+  get '/logout', to: 'pages#logout'
 
   resources :users
 

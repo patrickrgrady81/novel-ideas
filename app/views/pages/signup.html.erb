@@ -1,5 +1,6 @@
 <%= simple_form_for @user do |f| %>
   <%= f.input :username, label: "Enter username" %>
+  <%= f.input :email, label: "Enter email" %>
   <%= f.input :password, label: "Enter password" %>
   <%= f.button :submit, value: "Submit" %>
 <% end %>

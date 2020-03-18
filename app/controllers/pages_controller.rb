@@ -3,6 +3,7 @@ class PagesController < ActionController::Base
   end
 
   def login
+    @user = User.new
   end
 
   def signup
