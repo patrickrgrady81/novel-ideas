@@ -6,7 +6,7 @@ class UsersController < ActionController::Base
   end
 
   def create
-    redirect_to '/'
+    raise params.inspect
   end
 
   def new
