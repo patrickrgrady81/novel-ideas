@@ -1,9 +1,12 @@
 <h1>Welcome to Novel Ideas</h1>
+<%= logged_in? %>
 <% if !logged_in? %>
-<a href="/login">Log In</a><br><br>
-<a href="/signup">Sign Up</a><br><br>
-<% else %>
-<a href="#"><%= current_user.username %>'s Profile</a><br><br>
-<a href="/logout">Logout</a><br><br>
+  <a href="/login">Log In</a><br><br>
+  <a href="/signup">Sign Up</a><br><br>
+  <% else %>
+  <a href="#"><%= current_user.username %>'s Profile</a><br><br>
+  <a href="/logout">Logout</a><br><br>
 <% end %>
+
+<a href="/top100">Top 100 Books</a><br><br>
 <a href="/admin">Admin</a>

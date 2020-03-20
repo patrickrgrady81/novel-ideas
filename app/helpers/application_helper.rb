@@ -1,6 +1,6 @@
 module ApplicationHelper
   def logged_in?
-    current_user != nil
+    session[:user_id] != nil
   end
   
   def current_user
@@ -8,6 +8,7 @@ module ApplicationHelper
   end
 
   def logout
+    debug session
     session[:user_id] = nil
   end
 
