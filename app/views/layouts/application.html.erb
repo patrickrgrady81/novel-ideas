@@ -13,6 +13,11 @@
   <nav>
     <div class="nav">
       <h1><%= link_to 'Novel Ideas', '/' %></h1>
+      <form action="/results" method='post'>
+        <label for="search">Search</label>
+        <input type='text' name="search">
+        <input type="submit">  
+      </form>
       <ul>
         <li><%= link_to 'Top 100', '/top100' %></li>
         <% if !logged_in? %>
@@ -21,7 +26,6 @@
         <% else %>
           <li><a href="#"><%=current_user.username %></a> </li>
           <li><%= link_to 'Log Out', '/logout' %></li>
-          <%# <%= image_tag("arrow-down.svg", :alt => "down arrow") %>
         <% end %>
       </ul>
     </div>

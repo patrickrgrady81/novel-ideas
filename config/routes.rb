@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get '/signup', to: 'pages#signup'
   get '/logout', to: 'pages#logout'
   get '/top100', to: 'pages#top100'
+  post '/results', to: 'pages#results'
+  get '/results', to: 'pages#index'
 
   resources :users
 

@@ -1,4 +1,7 @@
+require 'open-uri'
+
 class PagesController < ApplicationController
+  skip_before_action :verify_authenticity_token
   def index
   end
 
@@ -16,6 +19,11 @@ class PagesController < ApplicationController
 
   def top100
     @books = Book.all
+  end
+
+  def results
+    TempBook.clear
+    @results = search_for(params[:search])
   end
 
   def search_for(term)
@@ -38,10 +46,10 @@ class PagesController < ApplicationController
       author = book_authors[i]
       img = book_urls[i]
       info = {title: title, author: author, img: img}
-      Book.new(info)
+      TempBook.new(info)
     end
 
 
-    return Book.all
+    return TempBook.all
   end
 end
