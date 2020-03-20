@@ -14,3 +14,32 @@
  *= require_self
  */
 
+nav {
+  background-color: rgb(54, 51, 51);
+  color: rgb(201, 185, 185);
+  padding-left: 60px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 60px;
+  align-items: center;
+}
+
+.nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav li {
+  margin-left: 2em;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+}
