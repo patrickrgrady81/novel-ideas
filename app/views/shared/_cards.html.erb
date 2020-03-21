@@ -1,0 +1,14 @@
+<div class='wrapper'>
+  <% @books.each do |book| %>
+    <div class='card'>
+      <img class='card__img' src='<%=book.img%>' alt='<%= "#{book.title}" %>-img' />
+      <p class='card__title'><%= book.title %></p>
+      <p class='card__author'><%= book.author %></p>
+      <% if logged_in? %>
+        <% if !in_my_db?(book) %>
+          <button class="card__btn">ADD</button>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

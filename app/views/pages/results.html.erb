@@ -1,14 +1,3 @@
 <div class='page'>
-  <div class='wrapper'>
-    <% @results.each do |book| %>
-      <div class='card'>
-        <img class='card__img' src='<%=book.img%>' alt='<%= "#{book.title}" %>-img' />
-        <p class='card__title'><%= book.title %></p>
-        <p class='card__author'><%= book.author %></p>
-        <% if logged_in? %>
-          <button class="card__btn">ADD</button>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+<%= render 'shared/cards' %>
 </div>

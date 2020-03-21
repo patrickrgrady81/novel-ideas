@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/top100', to: 'pages#top100'
   post '/results', to: 'pages#results'
   get '/results', to: 'pages#index'
+  get '/profile/', to: 'pages#profile'
 
   resources :users
 

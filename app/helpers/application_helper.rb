@@ -1,6 +1,6 @@
 module ApplicationHelper
   def logged_in?
-    session[:user_id] != nil
+    current_user != nil
   end
   
   def current_user
@@ -8,8 +8,10 @@ module ApplicationHelper
   end
 
   def logout
-    debug session
     session[:user_id] = nil
   end
 
+  def in_my_db?(book)
+    return false
+  end
 end

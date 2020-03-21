@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     new_user = User.create(username: params['user']['username'], email: params['user']['email'], password: params['user']['password'])
     user = User.find_by(username: new_user.username)
     session[:user_id] = user.id
-    redirect_to '/'
+    redirect_to '/profile'
   end
 
   def new

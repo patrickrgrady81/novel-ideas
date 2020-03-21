@@ -5,6 +5,14 @@ class PagesController < ApplicationController
   def index
   end
 
+  def profile
+    if !helpers.logged_in?
+      redirect_to '/'
+    else
+      @books =  helpers.current_user.books.all
+    end
+  end
+
   def login
     @user = User.new
   end
