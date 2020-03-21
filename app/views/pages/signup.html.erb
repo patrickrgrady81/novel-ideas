@@ -1,6 +1,12 @@
-<%= simple_form_for @user do |f| %>
-  <%= f.input :username, label: "Enter username" %>
-  <%= f.input :email, label: "Enter email" %>
-  <%= f.input :password, label: "Enter password" %>
-  <%= f.button :submit, value: "Submit" %>
+<%= form_tag users_path do %>
+  <label>Enter username:</label><br>
+  <%= text_field_tag :'username' %><br>
+
+  <label>Enter email:</label><br>
+  <%= text_field_tag :'email' %><br>
+
+  <label>Enter password:</label><br>
+  <%= text_field_tag :'password' %><br>
+ 
+  <%= submit_tag "Submit Post" %>
 <% end %>

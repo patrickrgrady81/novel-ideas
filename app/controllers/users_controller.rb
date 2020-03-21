@@ -3,13 +3,26 @@ class UsersController < ApplicationController
   end
 
   def show 
-    raise params.inspect
+  end
+
+  def login
+    # Log the user in here
+    user = User.find_by(username: params[:username])
+    redirect_to '/signup' if !user
+    if user.authenticate(params[:password])
+      session[:user_id] = user.id 
+      redirect_to '/profile'
+    else 
+      redirect_to '/login'
+    end
+
   end
 
   def create
     # Create the new user here
+    # raise params.inspect
     helpers.logout
-    new_user = User.create(username: params['user']['username'], email: params['user']['email'], password: params['user']['password'])
+    new_user = User.create(username: params['username'], email: params['email'], password: params['password'])
     user = User.find_by(username: new_user.username)
     session[:user_id] = user.id
     redirect_to '/profile'
