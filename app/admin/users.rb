@@ -2,6 +2,7 @@ ActiveAdmin.register User do
   index do 
     column :username 
     column :email
+    column :books
     actions
   end
 

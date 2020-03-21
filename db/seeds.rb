@@ -1,7 +1,7 @@
 AdminUser.destroy_all
 AdminUser.create!(email: 'pat@pat.com', password: 'patrick', password_confirmation: 'patrick') if Rails.env.development?
-User.destroy_all
 Book.destroy_all
+User.destroy_all
 
 #scrape for top 100 books
 book_url = 'https://www.goodreads.com/list/tag/best'
@@ -23,16 +23,24 @@ book_covers = doc.css('.bookCover').collect do |cover|
 end
 100.times do |i|
   info = {title: book_titles[i], author: book_authors[i], img: book_covers[i]}
-  Book.create(info)
+  b = Book.create(info)
 end
+start = Book.all.first.id
+end_num = start + 99
 
-#### Faker Users
+### Faker Users
 10.times do
   username = Faker::GreekPhilosophers.unique.name.downcase.gsub(' ', '_')
-  email = Faker::Internet.unique.email #=> "kirsten.greenholt@corkeryfisher.info"
-  password = Faker::Internet.unique.password(min_length: 8)
-  User.create(username: username, email: email, password: password)
+  email = Faker::Internet.unique.email
+  password = "password"
+  u = User.create(username: username, email: email, password: password)
+  5.times do 
+    r = rand(start..end_num)
+    u.books << Book.find_by(id: r)
+  end
 end
+
+
 
 puts "Created #{Book.count} Books"
 puts "Created #{User.count} Users"
