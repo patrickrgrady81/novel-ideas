@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Chettan+2:800&display=swap');
+
+.index-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.bookshelf-svg {
+  grid-area: 1 / 1 / 4 / 2;
+  margin-left: 70px;
+}
+
+.novel {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.ideas {
+  grid-area: 2 / 2 / 3 / 3;
+
+}
+
+.novel, .ideas {
+  display: flex;
+  margin: auto;
+  margin-left: 0px;
+  font-family: 'Baloo Chettan 2', cursive;
+  font-size: 8em;
+  margin-top: 30px;
+}
