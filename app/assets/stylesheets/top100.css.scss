@@ -41,12 +41,14 @@
   grid-area: 2 / 2 / 3 / 3;
 }
 
-.card__btn {
+.inner_card__btn .card__btn {
   grid-area: 3 / 1 / 4 / 3;
   background-image: linear-gradient(to bottom, #79e7b0, #2079b0);
   color: white;
   border-radius: 8px;
   height: 40px;
+  display: flex;
+  justify-content: center;
 }
 
 .card__title, .card__author {

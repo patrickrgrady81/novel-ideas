@@ -2,6 +2,7 @@ require 'open-uri'
 
 class PagesController < ApplicationController
   skip_before_action :verify_authenticity_token
+  respond_to :js, :json, :html
   def index
   end
 
@@ -26,6 +27,15 @@ class PagesController < ApplicationController
 
   def top100
     @books = Book.all
+  end
+
+  def add
+    bookID = params[:book]
+    book = Book.find_by(id: bookID)
+    puts book
+    user = helpers.current_user
+    user.books << book 
+    redirect_to '/profile'
   end
 
   def results

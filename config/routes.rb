@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   post '/login', to: 'users#login', as: 'userlogin'
   get '/signup', to: 'pages#signup'
   get '/logout', to: 'pages#logout'
-  get '/top100', to: 'pages#top100'
+  get '/top100', to: 'pages#top100', as: 'top100'
   post '/results', to: 'pages#results'
   get '/results', to: 'pages#index'
   get '/profile/', to: 'pages#profile'
+  post '/add', to: 'pages#add', as: 'add_book'
 
   resources :users, only: [:index, :new, :create]
 

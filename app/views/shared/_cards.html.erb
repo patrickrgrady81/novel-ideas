@@ -6,7 +6,7 @@
       <p class='card__author'><%= book.author %></p>
       <% if logged_in? %>
         <% if !in_my_db?(book) %>
-          <button class="card__btn">ADD</button>
+          <%= link_to '<button class="inner_card__btn">ADD</button>'.html_safe, add_book_path(book: book.id), id: "#{book.id}", method:'POST', class: "card__btn" %>
         <% end %>
       <% end %>
     </div>
