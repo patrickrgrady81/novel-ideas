@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/results', to: 'pages#index'
   get '/profile/', to: 'pages#profile'
   post '/add', to: 'pages#add', as: 'add_book'
+  post '/remove', to: 'pages#remove', as: 'remove_book'
 
   resources :users, only: [:index, :new, :create]
 

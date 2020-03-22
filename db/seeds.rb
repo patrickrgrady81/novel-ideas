@@ -39,7 +39,7 @@ end_num = start + 99
     u.books << Book.find_by(id: r)
   end
 end
-
+User.create(username: "pat", email: "pat", password: "pat")
 
 
 puts "Created #{Book.count} Books"

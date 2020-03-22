@@ -30,17 +30,38 @@ class PagesController < ApplicationController
   end
 
   def add
-    bookID = params[:book]
-    book = Book.find_by(id: bookID)
-    puts book
+    puts params
+    book_num = params[:book].to_i
+    puts book_num
+    if book_num < 0
+      book_num = (-book_num) - 1 
+      #create a new book from the temp
+      temp_book = TempBook.all[book_num]
+      puts temp_book.title
+      book = Book.create_or_find_by(title: temp_book.title, author: temp_book.author, img: temp_book.img)
+      puts book
+    else
+      # find the book
+      bookID = params[:book]
+      book = Book.find_by(id: bookID)
+      puts book
+    end
     user = helpers.current_user
     user.books << book 
     redirect_to '/profile'
   end
 
+  def remove
+    # puts params[:book]
+    user = helpers.current_user
+    book = Book.find_by(params[:book])
+    user.books.delete(book)
+    redirect_to '/profile'
+  end
+
   def results
     TempBook.clear
-    @results = search_for(params[:search])
+    @books = search_for(params[:search])
   end
 
   def search_for(term)

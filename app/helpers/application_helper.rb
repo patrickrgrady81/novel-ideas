@@ -12,6 +12,10 @@ module ApplicationHelper
   end
 
   def in_my_db?(book)
-    return false
+    # is the book in the current user's db?
+    # binding.pry
+    return false if !current_user.books.find_by(id: book.id)
+    return true
+    
   end
 end
