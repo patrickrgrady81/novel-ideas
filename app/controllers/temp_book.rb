@@ -19,5 +19,6 @@ class TempBook
 
   def self.clear
     @@all = []
+    @@total = -1
   end
 end

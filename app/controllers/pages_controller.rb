@@ -52,9 +52,19 @@ class PagesController < ApplicationController
   end
 
   def remove
-    # puts params[:book]
+    book_num = params[:book].to_i
+    puts book_num
+    if book_num < 0
+      book_num = (-book_num) - 1 
+      #create a new book from the temp
+      temp_book = TempBook.all[book_num]
+      puts temp_book.title
+      book = Book.find_by(author: temp_book.author, title: temp_book.title)
+    else
+      book = Book.find_by(id: params[:book])
+    end
     user = helpers.current_user
-    book = Book.find_by(params[:book])
+    # binding.pry
     user.books.delete(book)
     redirect_to '/profile'
   end
