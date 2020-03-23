@@ -8,13 +8,14 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Reenie+Beanie&display=swap" rel="stylesheet">
   </head>
   <body>
   <nav>
     <div class="nav">
       <h1><%= link_to 'Novel Ideas', '/' %></h1>
       <form action="/results" method='post'>
-        <input type='text' name="search" placeholder="Search" id="search-box">
+        <input type='text' name="search" id="search-box">
         <input type="submit" id="search-btn" value="Search">  
       </form>
       <ul>

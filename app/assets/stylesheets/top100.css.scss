@@ -14,7 +14,8 @@
 }
 
 .card {
-  background-color: rgb(137, 179, 243);
+  background-color: rgb(68, 55, 6);
+  color: rgb(238, 225, 177);
   font-family: var(--ff-arvo);
   font-size: 0.9em;
   padding: 10px;
@@ -51,7 +52,7 @@
 }
 
 .card__btn, .inner_card__btn {
-  background-image: linear-gradient(to bottom, #79e7b0, #2079b0);
+  background-image: linear-gradient(to bottom, rgba(193,177,24,1), rgba(250,232,60,1));
   color: white;
   border-radius: 8px;
   height: 40px;
@@ -62,7 +63,7 @@
 .card a, .inner_card__btn {
   text-decoration: none;
   cursor: pointer;
-  color: rgb(58, 28, 230);
+  color: rgb(68, 55, 6);
 }
 
 .card__title, .card__author {

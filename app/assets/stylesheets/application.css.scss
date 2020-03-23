@@ -21,12 +21,13 @@
 }
 
 body {
-  background-color: rgb(140, 228, 243);
+  background: rgb(126,105,27);
+  background: radial-gradient(circle, rgba(218,187,27,1) 0%, rgba(246,232,173,1) 100%);
 }
 
 nav {
-  background-color: rgb(54, 51, 51);
-  color: rgb(201, 185, 185);
+  background-color: rgb(68, 55, 6);
+  color: rgb(238, 225, 177);
   padding-left: 60px;
   margin-bottom: 18px;;
 }
@@ -86,7 +87,7 @@ footer{
 .form-wrapper {
   padding: 20px;
   margin: 25px, 15px, 15px, 15px;
-  background-color: rgb(137, 179, 243);
+  background-color: rgb(238, 225, 177);
   display: inline-block;
   text-align: center;
   border: 4px outset lightgrey;
@@ -105,11 +106,11 @@ footer{
 .submit-btn, #search-btn, #search-box {
   padding: 7px;
   padding-bottom: 20px;
-  background-color: rgb(140, 228, 243);
+  background-color: rgb(238, 225, 177);
   font-weight: bold;
   border: 1px solid black;
   border-radius: 8px;
-  color: rgb(58, 28, 230);
+  color: rgb(68, 55, 6);
 }
 
 #search-box {
