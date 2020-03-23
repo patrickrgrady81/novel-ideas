@@ -9,26 +9,29 @@
 .wrapper {
   color: black;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-gap: 1em;
 }
 
 .card {
+  background-color: rgb(137, 179, 243);
   font-family: var(--ff-arvo);
+  font-size: 0.9em;
   padding: 10px;
   border: 2px solid black;
   border-radius: 8px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 2fr 0.5fr 0.5fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  margin-bottom: 12px;;
 }
 
 
 .card__img {
   width: 90px;
-  grid-area: 1 / 1 / 3 / 2;
+  grid-area: 1 / 1 / 2 / 2;
   margin-right: 0px;
   
 }
@@ -39,16 +42,27 @@
 
 .card__author {
   grid-area: 2 / 2 / 3 / 3;
+  margin-top: -5px;
 }
 
-.inner_card__btn .card__btn {
+.card__btn {
   grid-area: 3 / 1 / 4 / 3;
+  margin-top: 5px;
+}
+
+.card__btn, .inner_card__btn {
   background-image: linear-gradient(to bottom, #79e7b0, #2079b0);
   color: white;
   border-radius: 8px;
   height: 40px;
   display: flex;
   justify-content: center;
+}
+
+.card a, .inner_card__btn {
+  text-decoration: none;
+  cursor: pointer;
+  color: rgb(58, 28, 230);
 }
 
 .card__title, .card__author {

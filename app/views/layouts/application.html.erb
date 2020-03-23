@@ -14,9 +14,8 @@
     <div class="nav">
       <h1><%= link_to 'Novel Ideas', '/' %></h1>
       <form action="/results" method='post'>
-        <label for="search">Search</label>
-        <input type='text' name="search">
-        <input type="submit">  
+        <input type='text' name="search" placeholder="Search" id="search-box">
+        <input type="submit" id="search-btn" value="Search">  
       </form>
       <ul>
         <li><%= link_to 'Top 100', '/top100' %></li>
@@ -33,8 +32,8 @@
   <div class="full-page">
     <%= yield %>
   </div>
-  <footer>
+  <%# <footer>
   <a href="/admin">Patrick Grady</a>
-  </footer>
+  </footer> %>
   </body>
 </html>

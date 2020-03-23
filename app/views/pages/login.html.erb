@@ -1,9 +1,13 @@
-<%= form_tag userlogin_path do %>
-  <label>Enter username:</label><br>
-  <%= text_field_tag :'username' %><br>
+<div class="container">
+  <div class='form-wrapper'>
+    <%= form_tag(userlogin_path) do %>
+      <label>Enter username:</label><br>
+      <%= text_field_tag :'username', nil, autofocus: true, required: true %><br>
 
-  <label>Enter password:</label><br>
-  <%= text_field_tag :'password' %><br>
- 
-  <%= submit_tag "Log In" %>
-<% end %>
+      <label>Enter password:</label><br>
+      <%= text_field_tag :'password', nil, required: true %><br>
+    
+      <%= submit_tag "Log In", class: 'submit-btn' %>
+    <% end %>
+  </div>
+</div>
