@@ -1,3 +1,15 @@
 <h1><%= current_user.username %> has <%= @books.count %> books</h1>
 
 <%= render 'shared/cards' %>
+
+<br>
+<% if @suggestions %>
+<h1>Here are some suggestions</h1>
+<br>
+<% @books = @suggestions %>
+<%= render 'shared/cards' %>
+
+<% else %>
+<h1>Add more books to get suggestions</h1>
+
+<% end %>

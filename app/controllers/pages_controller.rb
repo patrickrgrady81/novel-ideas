@@ -12,6 +12,16 @@ class PagesController < ApplicationController
     else
       @books =  helpers.current_user.books.all
     end
+    # find a random author from @books
+    @suggestions = nil
+    times = 0
+    while times < @books.count && !@suggestions
+      offset = rand(@books.count)
+      rand_author = Book.offset(offset).first.author
+      get_suggestions(rand_author)
+      @suggestions = TempBook.all
+      times += 1
+    end
   end
 
   def login
@@ -104,5 +114,45 @@ class PagesController < ApplicationController
 
 
     return TempBook.all
+  end
+
+  def get_suggestions(term)
+    term_ = term.gsub(" ", "%20")
+    url = "https://www.whatshouldireadnext.com/author/#{term_}"
+    begin
+      uri = URI.open(url)
+    rescue
+      return
+    end
+    doc = nil
+    doc = Nokogiri::HTML(uri) 
+    
+    book_url = doc.css('.books__book-row__details__title a')[0]['href']
+
+    url = "https://www.whatshouldireadnext.com#{book_url}"
+    begin
+      uri = URI.open(url)
+    rescue 
+      return 
+    end
+    doc = nil
+    doc = Nokogiri::HTML(uri)
+    
+    book_titles = doc.css('.books__book-row__details__title a').map do |book|
+      book.text
+    end
+    
+    book_authors = doc.css('.books__book-row__details__author a').map do |book|
+      book.text
+    end
+    
+    book_img = doc.css('.books__book-row__cover img').map do |book|
+      book['src']
+    end
+    
+    TempBook.clear
+    book_titles.count.times do |i|
+      TempBook.new(title: book_titles[i], author: book_authors[i], img: book_img[i]) if book_authors[i] != term
+    end
   end
 end
