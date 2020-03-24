@@ -50,7 +50,7 @@ class PagesController < ApplicationController
     book_num = params[:book].to_i
     if book_num < 0 
       # We are looking at a temp book
-      book_num = -book_num 
+      book_num = (-book_num) - 1
       @books << TempBook.all[book_num]
     else 
       # The book is in our db
@@ -138,7 +138,11 @@ class PagesController < ApplicationController
     url = "https://www.bookdepository.com/search?searchTerm=#{author_}+#{title_}&search=Find+book"
     uri = URI.open(url)
     doc = Nokogiri::HTML(uri)
-    href = doc.css('.book-item .item-img a').first['href']
+    begin
+      href = doc.css('.book-item .item-img a').first['href']
+    rescue
+      return "Sorry, no description available"
+    end
 
     url = "https://www.bookdepository.com#{href}"
     uri = URI.open(url)
