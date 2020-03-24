@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/description', to: 'pages#description', as: 'description'
 
   resources :users, only: [:index, :new, :create]
+  resources :posts
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
