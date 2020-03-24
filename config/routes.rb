@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/profile/', to: 'pages#profile'
   post '/add', to: 'pages#add', as: 'add_book'
   post '/remove', to: 'pages#remove', as: 'remove_book'
+  get '/description', to: 'pages#description', as: 'description'
 
   resources :users, only: [:index, :new, :create]
 

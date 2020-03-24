@@ -60,10 +60,16 @@
   justify-content: center;
 }
 
-.card a, .inner_card__btn {
+.inner_card__btn {
   text-decoration: none;
   cursor: pointer;
   color: rgb(68, 55, 6);
+}
+
+.card a {
+  text-decoration: none;
+  cursor: pointer;
+  color: rgba(250,232,60,1);
 }
 
 .card__title, .card__author {

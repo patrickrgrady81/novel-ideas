@@ -2,7 +2,7 @@ require 'open-uri'
 
 class PagesController < ApplicationController
   skip_before_action :verify_authenticity_token
-  respond_to :js, :json, :html
+  
   def index
   end
 
@@ -29,6 +29,7 @@ class PagesController < ApplicationController
 
   def logout
     # raise session.inspect
+
   end
 
   def signup
@@ -42,6 +43,22 @@ class PagesController < ApplicationController
       bookID = first + i
       @books << Book.find_by(id: bookID)
     end
+  end
+
+  def description
+    @books = []
+    book_num = params[:book].to_i
+    if book_num < 0 
+      # We are looking at a temp book
+      book_num = -book_num 
+      @books << TempBook.all[book_num]
+    else 
+      # The book is in our db
+      @books << Book.find_by(id: book_num)
+    end
+    book_info = {author: @books[0].author, title: @books[0].title}
+    @desc = get_description(book_info)
+
   end
 
   def add
@@ -111,9 +128,24 @@ class PagesController < ApplicationController
       info = {title: title, author: author, img: img}
       TempBook.new(info)
     end
-
-
     return TempBook.all
+  end
+
+  def get_description(author:, title:)
+    title_ = title.gsub(" ", "+")
+    author_ = author.gsub(" ", "+")
+
+    url = "https://www.bookdepository.com/search?searchTerm=#{author_}+#{title_}&search=Find+book"
+    uri = URI.open(url)
+    doc = Nokogiri::HTML(uri)
+    href = doc.css('.book-item .item-img a').first['href']
+
+    url = "https://www.bookdepository.com#{href}"
+    uri = URI.open(url)
+    doc = Nokogiri::HTML(uri)
+    desc = doc.css('.item-description').text
+
+    desc = desc.gsub("Description", "").gsub("\n", " ").gsub(/[ ]{2,}/, " ").gsub("show more", "")
   end
 
   def get_suggestions(term)
