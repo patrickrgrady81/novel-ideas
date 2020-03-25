@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_24_165109) do
+ActiveRecord::Schema.define(version: 2020_03_25_202200) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -58,11 +58,21 @@ ActiveRecord::Schema.define(version: 2020_03_24_165109) do
     t.index ["user_id"], name: "index_bookshelves_on_user_id"
   end
 
+  create_table "friends", force: :cascade do |t|
+    t.integer "user1", null: false
+    t.integer "user2", null: false
+    t.boolean "accepted", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -72,8 +82,10 @@ ActiveRecord::Schema.define(version: 2020_03_24_165109) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
+    t.boolean "admin", default: false
   end
 
   add_foreign_key "bookshelves", "books", on_delete: :cascade
   add_foreign_key "bookshelves", "users", on_delete: :cascade
+  add_foreign_key "posts", "users", on_delete: :cascade
 end

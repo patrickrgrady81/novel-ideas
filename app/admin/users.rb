@@ -1,8 +1,11 @@
 ActiveAdmin.register User do
+  permit_params :admin
+
   index do 
     column :username 
     column :email
     column :books
+    column :admin
     actions
   end
 

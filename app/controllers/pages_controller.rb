@@ -28,8 +28,6 @@ class PagesController < ApplicationController
   end
 
   def logout
-    # raise session.inspect
-
   end
 
   def signup

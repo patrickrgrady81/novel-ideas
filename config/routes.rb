@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :loaves
   get '/', to: 'pages#index'
   get '/login', to: 'pages#login'
   post '/login', to: 'users#login', as: 'userlogin'
