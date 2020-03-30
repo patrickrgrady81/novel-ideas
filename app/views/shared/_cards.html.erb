@@ -2,7 +2,7 @@
   <% @books.each do |book| %>
     <div class='card'>
       <img class='card__img' src='<%=book.img%>' alt='<%= "#{book.title}" %>-img' />
-      <p class='card__title'><%= link_to book.title, description_path(book: book.id) %></p>
+      <p class='card__title'><%= link_to book.title, book_path(book.id) %></p>
       <p class='card__author'><%= book.author %></p>
       <% if logged_in? %>
         <% if !in_my_db?(book) %>

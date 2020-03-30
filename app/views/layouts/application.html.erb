@@ -13,20 +13,20 @@
   <body>
   <nav>
     <div class="nav">
-      <h1><%= link_to 'Novel Ideas', '/' %></h1>
-      <form action="/results" method='post'>
-        <input type='text' name="search" id="search-box">
-        <input type="submit" id="search-btn" value="Search">  
-      </form>
+      <h1><%= link_to 'Novel Ideas', root_path %></h1>
+      <%= form_tag(search_results_path) do %>
+        <%= text_field_tag :'search' %>
+        <%= submit_tag "Search", id: 'search-btn' %>
+      <% end %>
       <ul>
         <li><%= link_to 'Forum', posts_path %></li>
-        <li><%= link_to 'Top 100', '/top100' %></li>
+        <li><%= link_to 'Top 100', top100_path %></li>
         <% if !logged_in? || current_user == nil %>
-          <li><%= link_to 'Sign Up', '/signup' %></li>
-          <li><%= link_to 'Log In', '/login' %></li>
+          <li><%= link_to 'Sign Up', new_user_path %></li>
+          <li><%= link_to 'Log In', new_session_path %></li>
         <% else %>
-          <li><a href="/profile"><%=current_user.username %></a> </li>
-          <li><%= link_to 'Log Out', '/logout' %></li>
+          <li><%= link_to current_user.username, user_path(current_user.id) %></a> </li>
+          <li><%= link_to 'Log Out', logout_path %></li>
         <% end %>
       </ul>
     </div>
