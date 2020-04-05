@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :pending_friends, ->(user) { unscope(:where).where("accepted = false AND user1 = :id", id: user.id) }
   has_many :pending_requests, ->(user) { unscope(:where).where("accepted = false AND user2 = :id", id: user.id) }
   validates :username, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
 
 
   def friend_request(user)

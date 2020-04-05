@@ -22,12 +22,18 @@ class UsersController < ApplicationController
 
   def create
     # Create the new user here
-    # raise params.inspect
     helpers.logout
-    new_user = User.create(username: params['username'], email: params['email'], password: params['password'])
-    user = User.find_by(username: new_user.username)
-    session[:user_id] = user.id
-    redirect_to user_path(user.id)
+    check = User.find_by(username: params[:username]) || User.find_by(email: params[:email])
+    if check
+      @error = "User name or email taken"
+      render "new"
+
+    else
+      new_user = User.create(username: params['username'], email: params['email'], password: params['password'])
+      user = User.find_by(username: new_user.username)
+      session[:user_id] = user.id
+      redirect_to user_path(user.id)
+    end
   end
 
   def new

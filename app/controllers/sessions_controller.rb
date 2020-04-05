@@ -12,14 +12,21 @@ class SessionsController < ApplicationController
 
   # For logging in users
   def create
-    if params[:password]
+    if params[:password] # User entered username and password
       user = User.find_by(username: params[:username])
-      redirect_to new_user_path if !user
-      if user.authenticate(params[:password])
-        session[:user_id] = user.id 
-        redirect_to user_path(user.id)
-      else 
-        redirect_to new_session_path
+      if !user
+        @error = "Invalid user name or password"
+        render 'new'
+      else
+        if user.authenticate(params[:password]) # Is username and password correct?
+          # yes
+          session[:user_id] = user.id 
+          redirect_to user_path(user.id)
+        else 
+          # no
+          @error = "Invalid user name or password"
+          render 'new'
+        end
       end
     else
       auth = request.env["omniauth.auth"]
@@ -39,5 +46,10 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-  privte
+  private
+
+  def invalid
+    @error = "Invalid user name or password"
+    render 'new'
+  end
 end
