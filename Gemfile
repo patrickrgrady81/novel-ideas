@@ -38,6 +38,7 @@ gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 # other gems I will be using
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'simple_form'
+gem 'better_errors', '~> 2.6'
 
 
 # Reduces boot times through caching; required in config/boot.rb
