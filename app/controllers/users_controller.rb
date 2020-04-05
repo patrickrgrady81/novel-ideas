@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     if !helpers.logged_in?
       redirect_to root_path
     else
-      @books =  helpers.current_user.books.all
+      @books = helpers.current_user.books.all
     end
     # find a random author from @books
     @suggestions = nil

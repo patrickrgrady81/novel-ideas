@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_30_180509) do
+ActiveRecord::Schema.define(version: 2020_04_05_142836) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -84,6 +84,8 @@ ActiveRecord::Schema.define(version: 2020_03_30_180509) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
     t.boolean "admin", default: false
+    t.string "provider"
+    t.string "uid"
   end
 
   add_foreign_key "bookshelves", "books", on_delete: :cascade
