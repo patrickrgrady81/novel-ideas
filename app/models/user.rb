@@ -4,6 +4,9 @@ class User < ApplicationRecord
   has_many :books, through: :bookshelves
 
   has_many :posts
+  has_many :comments;
+
+  # Friends
   has_many :friends, foreign_key: [:user1, :user2]
   has_many :friends, ->(user) { unscope(:where).where("accepted = true AND user1 = :id OR user2 = :id", id: user.id) }
   has_many :pending_friends, ->(user) { unscope(:where).where("accepted = false AND user1 = :id", id: user.id) }
