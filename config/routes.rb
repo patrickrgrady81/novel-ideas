@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create]
   resources :books, only: [:index, :show]
 
-  get "/auth/:provider/callback" => "sessions#create"
+  get "/auth/:provider/callback", to: "sessions#create", as: 'oauth_callback'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
