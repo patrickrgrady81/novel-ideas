@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
       end
     else # Logging in via oauth
       auth = request.env["omniauth.auth"]
-      raise auth.inspect
+      # raise auth.inspect
       @user = User.find_by(username: auth['info']['nickname']) do |u|
         u.name = auth['info']['nickname']
       end
