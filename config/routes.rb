@@ -10,9 +10,8 @@ Rails.application.routes.draw do
   post '/add', to: 'books#add', as: 'add_book'
   post '/remove', to: 'books#remove', as: 'remove_book'
 
-  get '/comment', to: 'pages#comment', as: 'new_comment'
-
   resources :users, only: [:index, :show, :new, :create]
+  resources :comments, only: [:show, :new, :create]
   resources :posts
   resources :sessions, only: [:new, :create]
   resources :books, only: [:index, :show]
