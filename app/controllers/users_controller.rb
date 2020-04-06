@@ -3,10 +3,10 @@ class UsersController < ApplicationController
   end
 
   def show 
-    if !helpers.logged_in?
+    if !logged_in?
       redirect_to root_path
     else
-      @books = helpers.current_user.books.all
+      @books = current_user.books.all
     end
     # find a random author from @books
     @suggestions = nil
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
   def create
     # Create the new user here
-    helpers.logout
+    logout
     check = User.find_by(username: params[:username]) || User.find_by(email: params[:email])
     if check
       @error = "User name or email taken"

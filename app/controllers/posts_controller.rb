@@ -5,11 +5,11 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = helpers.current_user.posts.build
+    @post = current_user.posts.build
   end
 
   def create
-    @post = helpers.current_user.posts.build(post_params)
+    @post = current_user.posts.build(post_params)
     if @post.save
       redirect_to @post 
     else

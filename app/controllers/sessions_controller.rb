@@ -42,7 +42,7 @@ class SessionsController < ApplicationController
   end
 
   def logout
-    helpers.logout
+    logout
     redirect_to root_path
   end
 

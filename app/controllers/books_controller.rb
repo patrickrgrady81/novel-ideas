@@ -52,7 +52,7 @@ class BooksController < ApplicationController
       book = Book.find_by(id: bookID)
       puts book
     end
-    user = helpers.current_user
+    user = current_user
     user.books << book 
     redirect_to user_path(user.id)
   end
@@ -69,7 +69,7 @@ class BooksController < ApplicationController
     else
       book = Book.find_by(id: params[:book])
     end
-    user = helpers.current_user
+    user = current_user
     # binding.pry
     user.books.delete(book)
     redirect_to user_path(user.id)
