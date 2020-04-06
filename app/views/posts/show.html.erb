@@ -1,8 +1,15 @@
-<h1><%= @post.title %></h1>
-<p><%= @post.content %></p>
+<div class="postOuterContainer">
+  <div class="postInnerContainer">
+    <div class="post">
+      <h1 class="postHeading"><%= @post.title %></h1>
+      <p class="postContent"><%= @post.content %></p>
 
-<% if logged_in? && @post.user.username == current_username %>
-  <%= link_to "Edit", edit_post_path(@post) %>
-  <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure you want to delete?"} %><br><br>
-<% end %>
-<%= link_to "All Posts", posts_path %>
+      <% if logged_in? && @post.user.username == current_username %>
+        <div class="buttons">
+          <%= link_to "Edit", edit_post_path(@post), class: 'editLink' %>
+          <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure you want to delete?"}, class: 'deleteLink' %><br><br>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

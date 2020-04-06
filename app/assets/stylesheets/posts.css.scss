@@ -1,8 +1,69 @@
-.postIndex a, .newPost a {
-  text-decoration: none; 
-  color: rgb(65, 55, 11);
+:root {
+  --header-color: #A3A838;
+  --post-color: #AA7939;
+  --text-color: rgb(65, 55, 11)
 }
 
-.newPost {
-  // border: 2px solid black;
+.postOuterContainer{
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.postInnerContainer {
+  display: flex;
+  flex-direction: column;
+}
+.post {
+  border: 2px solid black;
+  margin-bottom: 10px;
+  a {
+    text-decoration: none; 
+    color: var(--text-color);
+  }
+}
+.postHeading {
+  margin: 0;
+  border-bottom: 2px solid black;
+  background-color: var(--header-color);
+  font-size: 1.5rem;
+}
+
+.postHeading, .newPost, .deleteLink, .editLink{
+  text-align: center;
+  padding: 6px;
+}
+
+.newPost, .deleteLink, .editLink {
+  border: 2px solid black;
+  font-size: 1.3rem;
+  border-radius: 8px;
+  background-color: rgb(65, 55, 11);
+  a {
+    color: var(--header-color);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+}
+
+a.deleteLink, a.editLink {
+  color: var(--header-color);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.postIndexPublished, .postIndexBy, .postIndexComments, .postContent {
+  margin: 0;
+  background-color: var(--post-color);
+  text-align: center;
+}
+
+.postContent {
+  font-size: 1.3rem;
+  padding: 18px;
+  margin-bottom: 12px;
+}
+
+.buttons {
+  text-align: center;
 }
