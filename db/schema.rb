@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_05_142836) do
+ActiveRecord::Schema.define(version: 2020_04_06_194857) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -59,6 +59,15 @@ ActiveRecord::Schema.define(version: 2020_04_05_142836) do
     t.index ["user_id"], name: "index_bookshelves_on_user_id"
   end
 
+  create_table "comments_tables", force: :cascade do |t|
+    t.integer "user_id_id", null: false
+    t.integer "post_id_id", null: false
+    t.string "title"
+    t.text "content"
+    t.index ["post_id_id"], name: "index_comments_tables_on_post_id_id"
+    t.index ["user_id_id"], name: "index_comments_tables_on_user_id_id"
+  end
+
   create_table "friends", force: :cascade do |t|
     t.integer "user1", null: false
     t.integer "user2", null: false
@@ -90,5 +99,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_142836) do
 
   add_foreign_key "bookshelves", "books", on_delete: :cascade
   add_foreign_key "bookshelves", "users", on_delete: :cascade
+  add_foreign_key "comments_tables", "post_ids"
+  add_foreign_key "comments_tables", "user_ids"
   add_foreign_key "posts", "users", on_delete: :cascade
 end
