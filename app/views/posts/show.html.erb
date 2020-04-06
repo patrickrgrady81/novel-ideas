@@ -4,11 +4,17 @@
       <h1 class="postHeading"><%= @post.title %></h1>
       <p class="postContent"><%= @post.content %></p>
 
+
+      <div class="buttons">
       <% if logged_in? && @post.user.username == current_username %>
-        <div class="buttons">
-          <%= link_to "Edit", edit_post_path(@post), class: 'editLink' %>
-          <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure you want to delete?"}, class: 'deleteLink' %><br><br>
-        </div>
+          <div class="userButtons">
+            <%= link_to "Edit", edit_post_path(@post), class: 'editLink' %>
+            <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure you want to delete?"}, class: 'deleteLink' %><br>
+          </div>
+      <% end %>
+      <% if logged_in? %>
+        <%= link_to "Comment", new_comment_path, class: 'commentLink' %>
+      </div>
       <% end %>
     </div>
   </div>

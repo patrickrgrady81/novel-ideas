@@ -29,16 +29,16 @@
   font-size: 1.5rem;
 }
 
-.postHeading, .newPost, .deleteLink, .editLink{
+.postHeading, .newPost, .deleteLink, .editLink, .commentLink{
   text-align: center;
   padding: 6px;
 }
 
-.newPost, .deleteLink, .editLink {
+.newPost, .deleteLink, .editLink , .commentLink{
   border: 2px solid black;
   font-size: 1.3rem;
   border-radius: 8px;
-  background-color: rgb(65, 55, 11);
+  background-color: var(--text-color);
   a {
     color: var(--header-color);
     text-decoration: none;
@@ -46,13 +46,15 @@
   }
 }
 
-a.deleteLink, a.editLink {
+a.deleteLink, a.editLink, a.commentLink {
   color: var(--header-color);
   text-decoration: none;
   text-transform: uppercase;
+  font-size: 1rem;
+  margin: auto;
 }
 
-.postIndexPublished, .postIndexBy, .postIndexComments, .postContent {
+.postIndexPublished, .postIndexBy, .postIndexComments, .postContent, .commentLink {
   margin: 0;
   background-color: var(--post-color);
   text-align: center;
@@ -66,4 +68,15 @@ a.deleteLink, a.editLink {
 
 .buttons {
   text-align: center;
+  margin-bottom: 18px;
+}
+
+.userButtons {
+  margin-bottom: 22px;
+}
+
+a.commentLink {
+  background-color: var(--text-color);;
+  color: var(--header-color);
+  margin-bottom: 12px;
 }
