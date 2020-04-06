@@ -39,6 +39,7 @@ gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'simple_form'
 gem 'better_errors', '~> 2.6'
+gem "binding_of_caller"
 
 
 # Reduces boot times through caching; required in config/boot.rb

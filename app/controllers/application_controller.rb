@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     User.find_by(id: session[:user_id])
   end
 
-  def logout
+  def logout_user
     session[:user_id] = nil
   end
 

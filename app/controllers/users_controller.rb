@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
   def create
     # Create the new user here
-    logout
+    logout_user
     check = User.find_by(username: params[:username]) || User.find_by(email: params[:email])
     if check
       @error = "User name or email taken"

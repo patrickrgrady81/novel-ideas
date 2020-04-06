@@ -1,5 +1,4 @@
 require 'open-uri'
-
 class BooksController < ApplicationController
 
   def index
