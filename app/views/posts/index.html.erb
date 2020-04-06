@@ -1,13 +1,17 @@
-<% @posts.each do |post| %>
-  <h2><%= link_to post.title, post_path(post) %></h2>
-  <p><%= "Published #{time_ago_in_words(post.created_at)} ago" %></p>
-  <% if post.user %>
-    <p><%= "by #{post.user.username}" %></p>
-  <% else %>
-    <p><%= "by anonymous" %></p>
+<div class="postIndex">
+  <% @posts.each do |post| %>
+    <h2><%= link_to post.title, post_path(post) %></h2>
+    <p><%= "Published #{time_ago_in_words(post.created_at)} ago" %></p>
+    <% if post.user %>
+      <p><%= "by #{post.user.username}" %></p>
+    <% else %>
+      <p><%= "by anonymous" %></p>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
-<% if logged_in? %>
-  <%= link_to "New Post", new_post_path%>
-<% end %>
+<div class="newPost">
+  <% if logged_in? %>
+    <%= link_to "New Post", new_post_path%>
+  <% end %>
+</div>
