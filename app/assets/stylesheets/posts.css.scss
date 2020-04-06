@@ -41,6 +41,9 @@
   background-color: var(--header-color);
   font-size: 1.5rem;
   font-weight: bolder;
+  font-family: 'Roboto Condensed', sans-serif;
+  letter-spacing: 0.1rem;
+  text-decoration: underline;
 }
 
 .postHeading, .newPost, .deleteLink, .editLink, .commentLink{
