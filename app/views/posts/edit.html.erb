@@ -1,5 +1,9 @@
-<h1>Edit Post</h1>
-
-<%= render '/shared/form' %>
-
-<%= link_to 'Cancel', post_path %>
+<div class="outerPostForm">
+  <div class="innerPostForm">
+    <h1 class="postFormHeader">Edit Post</h1>
+    <%= render '/shared/form' %>
+    <div class="postFormCancel">
+      <%= button_to 'Cancel', post_path, class:'inPostFormCancel' %>
+    </div>
+  </div>
+</div>

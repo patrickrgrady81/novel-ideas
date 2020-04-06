@@ -1,5 +1,11 @@
 <%= form_for @post do |f| %>
-  Title:<%= f.text_field :title %><br>
-  Content:<%= f.text_area :content %><br>
-  <%= f.submit %>
+  <div class="postFormTitle">
+    Title:<%= f.text_field :title %><br>
+  </div>
+  <div class="postFormTitle">
+    Content:<%= f.text_area :content, cols:'50', rows:'10' %><br>
+  </div>
+  <div class="postFormSubmit">
+    <%= f.submit class:"inPostFormSubmit" %>
+  </div>
 <% end %>

@@ -80,3 +80,48 @@ a.commentLink {
   color: var(--header-color);
   margin-bottom: 12px;
 }
+
+
+// Forum Forms
+
+// innerPostForm
+// outerPostForm
+// postFormTitle
+// postFormContent
+// postFormHeader
+// postFormCancel
+// postFormSubmit
+
+.outerPostForm {
+  display: flex;
+  justify-content: center;
+}
+
+.innerPostForm {
+  border: 2px solid black;
+  text-align: center;
+  input, textarea {
+    width: 95%;
+    overflow: auto;
+  }
+  textarea{
+    margin-bottom: 4px;
+  }
+}
+
+.postFormHeader {
+  font-size: 1.5rem;
+  border-bottom: 2px solid black;
+  margin: 0;
+  background-color: var(--header-color);
+  color: var(--text-color);
+}
+
+.postFormTitle, .postFormContent {
+  background-color: var(--post-color);
+  color: black;
+}
+
+.postFormTitle {
+  padding-top: 3px;
+}
