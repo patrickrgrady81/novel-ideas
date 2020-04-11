@@ -2,7 +2,9 @@
   <div class="postInnerContainer">
     <div class="post">
       <h1 class="postHeading"><%= @post.title %></h1>
-      <p class="postContent"><%= @post.content %></p>
+      <p class="postContent"><%= @post.content %><br>
+      <span class="username"><%= @post.user.username %></span>
+      </p>
 
 
       <div class="buttons">
@@ -13,8 +15,28 @@
           </div>
       <% end %>
       <% if logged_in? %>
-        <%= link_to "Comment", new_comment_path, class: 'commentLink' %>
+        <%= link_to "Comment", new_post_comment_path(@post), class: 'commentLink' %>
       </div>
+      <% end %>
+    </div>
+
+    <%# Comments %>
+    <div class="post comment">
+      <% if @comments.count > 0 %>
+        <% @comments.each do |comment| %>
+          <h2 class="postHeading"><%= comment.title %></h2>
+          <p class="postContent"><%= comment.content %><br>
+          <span class="username"><%= comment.user.username %></span>
+          </p>
+            <div class="buttons">
+              <% if logged_in? && comment.user.username == current_username %>
+               <div class="userButtons">
+                <%= link_to "Delete", post_comment_path(@post, comment), method: :delete, data: {confirm: "Are you sure you want to delete?"}, class: 'deleteLink' %><br>
+           </div>
+      <% end %>
+        <% end %>
+      <% else %>
+        <h2 class="postHeading noUnderline"><%= "No comments for this post" %></h2>
       <% end %>
     </div>
   </div>

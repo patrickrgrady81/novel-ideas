@@ -11,8 +11,10 @@ Rails.application.routes.draw do
   post '/remove', to: 'books#remove', as: 'remove_book'
 
   resources :users, only: [:index, :show, :new, :create]
-  resources :comments, only: [:show, :new, :create]
-  resources :posts
+  
+  resources :posts do 
+    resources :comments, only: [:show, :new, :create, :destroy]
+  end
   resources :sessions, only: [:new, :create]
   resources :books, only: [:index, :show]
 

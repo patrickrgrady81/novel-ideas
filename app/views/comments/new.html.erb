@@ -1,0 +1,21 @@
+<%# Form for comment  %>
+<div class="outerPostForm">
+  <div class="innerPostForm">
+    <h1 class="postFormHeader">New Comment</h1>
+    
+      <%= form_for [@post, @comment] do |f| %>
+        <div class="postFormTitle">
+          Title:<%= f.text_field :title %><br>
+        </div>
+        <div class="postFormTitle">
+          Content:<%= f.text_area :content, cols:'50', rows:'10' %><br>
+        </div>
+        <div class="postFormSubmit">
+          <%= f.submit class:"inPostFormSubmit" %>
+        </div>
+      <% end %>
+
+  </div>
+</div>
+
+<%# show the post  %>

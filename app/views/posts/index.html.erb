@@ -7,7 +7,7 @@
           <% if post.user %>
             <p class="postIndexBy"><%= "by #{post.user.username}" %></p>
           <% end %>
-          <p class="postIndexComments">0 Comments</p>
+          <p class="postIndexComments"><%= "#{pluralize(post.comments.count, 'Comment')}"  %></p>
          </div>
       <% end %>
    

@@ -28,6 +28,7 @@
 }
 .post {
   border: 2px solid black;
+  border-radius: 8px;
   margin-bottom: 10px;
   font-family: 'Gotu', sans-serif;
   a {
@@ -148,4 +149,21 @@ a.commentLink {
 
 .postFormTitle {
   padding-top: 3px;
+}
+
+
+// comments
+
+.comment{
+  margin-left: 10%;
+}
+
+.noUnderline {
+  text-decoration: none;
+}
+
+.username{
+  padding: 0px 2px;
+  border: 1px dashed black;
+  font-size: 0.8rem;
 }
