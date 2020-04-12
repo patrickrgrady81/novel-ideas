@@ -1,24 +1,14 @@
-# README
+# Novel Ideas
+Novel Ideas is a Ruby on Rails app made for Flatiron bootcamp. This is my third overall project.
+This project will allow you to create a bookshelf. You can then add books to your bookshelf. You can
+add them through search, looking at others' books and there is a top 100 page you can add from.
+There is also a forum people can chat on or add book reviews, etc.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Usage
+To use this app, just clone, run bundle, rails db:migrate, rails db:seed and then rails s.
 
-Things you may want to cover:
+## Contributing
+Since this is a school project, contributions are not allowed at this time.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
