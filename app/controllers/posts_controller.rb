@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     # get comments for the post if any
-    @comments = @post.comments 
+    @comments = @post.comments
   end
 
   def edit

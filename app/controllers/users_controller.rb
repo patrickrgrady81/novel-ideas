@@ -3,20 +3,25 @@ class UsersController < ApplicationController
   end
 
   def show 
-    if !logged_in?
-      redirect_to root_path
+    puts "AM I LOGGED IN: #{logged_in?}"
+    if logged_in?
+        if current_user.id == params[:id].to_i
+        @books = current_user.books.all
+
+        @suggestions = nil
+        times = 0
+        while times < @books.count && !@suggestions
+          offset = rand(@books.count)
+          rand_author = Book.offset(offset).first.author
+          # get_suggestions(rand_author)
+          @suggestions = quick_suggest #TempBook.all
+          times += 1
+        end
+        else
+          redirect_to "/users/#{current_user.id}"
+      end
     else
-      @books = current_user.books.all
-    end
-    # find a random author from @books
-    @suggestions = nil
-    times = 0
-    while times < @books.count && !@suggestions
-      offset = rand(@books.count)
-      rand_author = Book.offset(offset).first.author
-      # get_suggestions(rand_author)
-      @suggestions = quick_suggest #TempBook.all
-      times += 1
+      redirect_to root_path
     end
   end
 
