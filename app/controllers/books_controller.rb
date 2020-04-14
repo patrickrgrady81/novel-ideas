@@ -26,12 +26,7 @@ class BooksController < ApplicationController
   end
 
   def top100
-    @books = []
-    first = Book.first.id
-    100.times do |i|
-      bookID = first + i
-      @books << Book.find_by(id: bookID)
-    end
+    @books = Book.top_100
   end
 
   def add
