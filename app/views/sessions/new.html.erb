@@ -5,7 +5,7 @@
       <%= text_field_tag :'username', nil, autofocus: true, required: true %><br>
 
       <label>Enter password:</label><br>
-      <%= text_field_tag :'password', nil, required: true %><br>
+      <%= password_field :'password', nil, required: true %><br>
     
       <%= submit_tag "Log In", class: 'submit-btn' %>
     <% end %>
