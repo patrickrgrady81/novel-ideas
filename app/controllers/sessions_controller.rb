@@ -5,12 +5,13 @@ class SessionsController < ApplicationController
 
   # For logging in users
   def create
-    if params[:password] # User entered username and password
+    # raise params.inspect
+    if params[:password][0] # User entered username and password
       user = User.find_by(username: params[:username])
       if !user
         invalid
       else
-        if user.authenticate(params[:password]) # Is username and password correct?
+        if user.authenticate(params[:password][0]) # Is username and password correct?
           # yes
           session[:user_id] = user.id 
           redirect_to user_path(user.id)
@@ -30,10 +31,15 @@ class SessionsController < ApplicationController
     end
   end
 
-  def logout
-    logout_user
+  def destroy      
+    logout_user    
     redirect_to root_path
-  end
+  end  
+
+  # def logout
+  #   logout_user
+  #   redirect_to root_path
+  # end
 
   private
 

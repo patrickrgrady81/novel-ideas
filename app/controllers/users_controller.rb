@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   end
 
   def show 
-    puts "AM I LOGGED IN: #{logged_in?}"
     if logged_in?
         if current_user.id == params[:id].to_i
         @books = current_user.books.all
@@ -34,7 +33,7 @@ class UsersController < ApplicationController
       render "new"
 
     else
-      new_user = User.create(username: params['username'], email: params['email'], password: params['password'])
+      new_user = User.create(username: params['username'], email: params['email'], password: params['password'][0])
       user = User.find_by(username: new_user.username)
       session[:user_id] = user.id
       redirect_to user_path(user.id)

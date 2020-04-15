@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   root to: 'pages#index'
 
-  get '/logout', to: 'sessions#logout'
+  # get '/logout', to: 'sessions#logout'
+  delete '/logout' => 'sessions#destroy'
 
   get '/top100', to: 'books#top100', as: 'top100'
 
