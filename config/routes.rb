@@ -14,12 +14,14 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :new, :create]
   
   resources :posts do 
-    resources :comments, only: [:show, :new, :create, :destroy]
+    resources :comments, only: [:index, :show, :new, :create, :destroy]
   end
   resources :sessions, only: [:new, :create]
   resources :books, only: [:index, :show]
 
   get "/auth/:provider/callback", to: "sessions#create"
+  # get "signup/auth/:provider/callback", to: "users#new"
+
 
   #ActiveAdmin
   devise_for :admin_users, ActiveAdmin::Devise.config
