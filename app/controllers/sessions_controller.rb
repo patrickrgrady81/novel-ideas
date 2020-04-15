@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   # For logging in users
   def create
     # raise params.inspect
-    if params[:password][0] # User entered username and password
+    if params[:password]# User entered username and password
       user = User.find_by(username: params[:username])
       if !user
         invalid
